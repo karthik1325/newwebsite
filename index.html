@@ -2,61 +2,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-</head>
-<header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img class="rounded-pill" WIDTH="70" HEIGHT="35"
-                    src="data:image/png;base64,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"
-                    alt="Logo" width="30" height="24" class="d-inline-block align-text-MIDDLE">
-                <style></style>
-            </a>
-        </div>
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    <a class="nav-link" href="ads.html">Ads</a>
-                    <a class="nav-link" href="contact.html">Contact Us</a>
-                </div>
-            </div>
-            <div class="container-fluid" class="d-inline-block align-text-end">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                <button class="btn btn-outline-success" type="submit">Search</button>
-                <button class="btn btn-outline-success" type="submit">help</button>
-            </form>
-        </div>
-        </div>
-        
-    </nav>
-    </nav>
-</header>
-<body>
-    
-<div class="container text-center">
-  <div class="row">
-    <div class="col">
-        <br><br>
-        <h1>Bharat Moves On Rapido!</h1><br>
-        <label class="form-label" class="align-text-left">Enter Your Pick-up Location</label>
-        <input  class="form-control" id="location" placeholder="Location">
-        <label for="Destinatin" class="form-label">Enter Your Destination Location</label>
-        <input class="form-control" id="Destinatin" placeholder="Destination"></input>
-    
-    </div>
-  </div>
-</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MKM Builders</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
+    body {
+      background-color: #f5f5f5;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #1e1e1e;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1em;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #f0a500;
+    }
+
+    /* Toggle Button */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: white;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      background-color: rgba(255,255,255,0.15);
+      padding: 30px 50px;
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+    }
+
+    .hero-content h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .hero-content p {
+      font-size: 1.1em;
+      color: #e0e0e0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        background-color: #1e1e1e;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        display: none;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .hero-content {
+        width: 90%;
+        padding: 20px;
+      }
+
+      .hero-content h1 {
+        font-size: 1.6em;
+      }
+
+      .hero-content p {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">MKM Builders</div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <ul id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Project</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to MKM Builders</h1>
+      <p>Build our construction site</p>
+    </div>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>

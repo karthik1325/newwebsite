@@ -1,0 +1,23 @@
+#bouncingImage {
+    cursor: pointer; /* Changes cursor to a hand to indicate it's interactive */
+    transition: transform 0.2s; /* Smooth transition for non-animated changes */
+}
+
+/* The class added by JavaScript to trigger the animation */
+.bounce {
+    animation-name: bounce;
+    animation-duration: 1s; /* Duration of the bounce animation */
+    animation-fill-mode: both; /* Ensures the final state is maintained after animation */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0); /* Start and end at normal position */
+    }
+    40% {
+        transform: translateY(-30px); /* Bounce up 30px */
+    }
+    60% {
+        transform: translateY(-15px); /* Fall slightly, then up again */
+    }
+}

@@ -1,152 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MKM Builders</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+  <title>MKML Builders</title>
 
-    body {
-      background-color: #f5f5f5;
-    }
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    /* Navbar */
-    nav {
-      background-color: #1e1e1e;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav .logo {
-      font-size: 1.5em;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 1em;
-      transition: color 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: #f0a500;
-    }
-
-    /* Toggle Button */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background-color: white;
-      margin: 4px 0;
-      transition: 0.4s;
-    }
-
-    /* Hero Section */
-    .hero {
-      background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
-      height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      color: rgb(12, 1, 1);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-    }
-
-    .hero-content {
-      position: relative;
-      text-align: center;
-      background-color: rgba(104, 30, 30, 0.61);
-      padding: 30px 50px;
-      border-radius: 12px;
-      backdrop-filter: blur(5px);
-    }
-
-    .hero-content h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
-      color: #ffffff;
-    }
-
-    .hero-content p {
-      font-size: 1.1em;
-      color: #ffffff;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        background-color: #1e1e1e;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        display: none;
-      }
-
-      nav ul.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-
-      .hero-content {
-        width: 90%;
-        padding: 20px;
-      }
-
-      .hero-content h1 {
-        font-size: 1.6em;
-      }
-
-      .hero-content p {
-        font-size: 0.9em;
-      }
-    }
-  </style>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="indcs.css">
 </head>
 <body>
   <!-- Navbar -->
@@ -156,84 +20,45 @@
       <div></div>
       <div></div>
       <div></div>
-      <!-- <div class="container ">
-            <a class="navbar-brand" href="#">
-                <img src="data:image/png;base64,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" alt="Bootstrap" width="80"
-                    height="20" width="10"class="rounded-pill">
-            </a>
-            </div> -->
     </div>
     <ul id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="ads.html">About Us</a></li>
-      <li><a href="#">Project</a></li>
+      <li><a href="project.html">Project</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
   </nav>
 
-  <div class="feature-card">
-    <section class="hero">
-      <div class="hero-content"><span>
-        <h1>Welcome to MKML Builders</h1>
-        <p>Build our construction site</p></span>
-      </div>
-    </section>
-  </div>
   <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content" data-aos="fade-up">
+      <h1>Welcome to MKML Builders</h1>
+      <p>Build our construction site</p>
+    </div>
+  </section>
 
+  <!-- Flip Card Section -->
+  <section class="flip-section" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <h3>Front Side</h3>
+          <p>Hover to see more</p>
+        </div>
+        <div class="flip-card-back">
+          <h3>Back Side</h3>
+          <p>Hello World</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- JS -->
   <script>
     function toggleMenu() {
       document.getElementById('nav-links').classList.toggle('active');
     }
-  </script><br><br>
-
-  <style>.flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
-  border: 1px solid #f1f1f1;
-  perspective: 1000px; 
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
-}
-.flip-card-back {
-  background-color: dodgerblue;
-  color: white;
-  transform: rotateY(180deg);
-}</style>
-<body>
-<div>
-
-</div>
+    AOS.init();
+  </script>
 </body>
-<div data-aos="fade-zoom-in"
-     data-aos-easing="ease-in-back"
-     data-aos-delay="300"
-     data-aos-offset="0">  hello world
-</div>
 </html>
